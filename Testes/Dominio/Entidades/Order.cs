@@ -29,8 +29,8 @@ namespace Dominio.Entidades
         public void AddItem(Product product, int quantity)
         {
             var item = new OrderItem(product, quantity);
-            // Validação com Fluent Validation
-            Items.Add(item);
+            if(product != null && quantity > 0)
+                Items.Add(item);
         }
 
         public decimal Total()
